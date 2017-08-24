@@ -14,6 +14,7 @@ mkdir outputgemini
 mkdir outputcapricorn
 mkdir outputnatrium
 mkdir outputlithium
+mkdir outputscorpio
 ##########################################
 make -C $(pwd) O=outputgemini gemini_defconfig
 make -j64 -C $(pwd) O=outputgemini
@@ -26,8 +27,12 @@ make -j64 -C $(pwd) O=outputnatrium
 
 make -C $(pwd) O=outputlithium lithium_defconfig
 make -j64 -C $(pwd) O=outputlithium
+
+make -C $(pwd) O=outputscorpio scorpio_defconfig
+make -j64 -C $(pwd) O=outputscorpio
 ##########################################
 cp outputgemini/arch/arm64/boot/Image $(pwd)/arch/arm64/boot/zImage
 cp outputcapricorn/arch/arm64/boot/Image $(pwd)/arch/arm64/boot/zImage
 cp outputnatrium/arch/arm64/boot/Image $(pwd)/arch/arm64/boot/zImage
 cp outputlithium/arch/arm64/boot/Image $(pwd)/arch/arm64/boot/zImage
+cp outputscorpio/arch/arm64/boot/Image $(pwd)/arch/arm64/boot/zImage
